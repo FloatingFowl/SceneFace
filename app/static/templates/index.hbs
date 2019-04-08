@@ -1,0 +1,34 @@
+<div class=" ui text container" style="margin-bottom:2%">
+            <div class="fluid ui buttons">
+              <button class="ui positive button" id="face-add" onClick="$('#my-awesome-dropzone').show();">Add Faces</button>
+              <div class="or"></div>
+              <button class="ui button" id="change-celeb" onClick="reset();">Reset</button>
+              <div class="or"></div>
+              <button class="ui button negative" id="change-celeb" onClick="reset();prepareKNN();">Done</button>
+            </div>
+
+        <form id="my-awesome-dropzone" action="/upload_photos" class="dropzone" hidden>  
+            <div class="dz-message" data-dz-message><span>Drop Training Images Here.<br>
+                (Prefix each i<sup>th</sup> image of actor <i>xyz</i> as <i>xyz_i.png</i>)</span></div>
+            <div class="dropzone-previews"></div>
+            <div class="fallback"> <!-- this is the fallback if JS isn't working -->
+                <input name="file" type="file" multiple />
+            </div>
+        </form>
+<hr>
+
+<form class="dropzone" id="video-dropzone">
+<div class="dz-message" data-dz-message><span>Drop Testing Video Here
+    <br>(Only <i>.mp4</i> files for POC)</span></div>
+</form>
+
+<br>
+<button class="fluid ui positive button" id="final-button" onClick="detectFaces()" style="display:none">Find the Celebrities!</button>
+<br>
+
+<video id='video-loc' controls style="width:100%" hidden>
+  <source src="/static/video/final.mp4" type='video/mp4' id='video-src'>
+</video>
+
+</div>
+
